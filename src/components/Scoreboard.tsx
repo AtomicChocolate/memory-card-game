@@ -1,14 +1,17 @@
-import React from 'react'
-import { Score } from "../App"
+import React from "react";
+import { Score } from "../utils/Types";
 
 type Props = {
-	score: Score
-}
+	score: Score;
+};
 
 const Scoreboard = (props: Props) => {
-  return (
-	<div className="scoreboard"><p>Score: {props.score.score}</p><p>Top: {props.score.highScore}</p></div>
-  )
-}
+	return (
+		<nav className="scoreboard">
+			<p>Score: {props.score.score}-</p>
+			<p>-Top: {props.score.highScore}</p>
+		</nav>
+	);
+};
 
-export default Scoreboard
+export default Scoreboard;

@@ -1,18 +1,24 @@
-import React from 'react'
-import { Score } from "../App";
+import React from "react";
+import Shuffle from "shuffle-array";
+import { images } from "../utils/Images";
+import { CardImage, Score } from "../utils/Types";
+import Card from "./Card";
 
 type Props = {
-	score: Score,
+	score: Score;
 	updateScore: (newScore: number) => void;
-}
-
-// A function to generate multiple cards, pulling from the image folder.
-// Other stuff for game
+};
 
 const Deck = (props: Props) => {
-  return (
-	<div>Deck</div>
-  )
-}
+	const picks = Shuffle.pick(images, { picks: 12 }) as CardImage[];
 
-export default Deck
+	return (
+		<div className="card-deck">
+			{picks.map((image) => (
+				<Card image={image} />
+			))}
+		</div>
+	);
+};
+
+export default Deck;

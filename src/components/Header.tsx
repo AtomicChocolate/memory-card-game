@@ -1,9 +1,13 @@
-import React from 'react'
+import React from "react";
 
 function Header() {
-  return (
-	<h1>Memory Card Game</h1>
-  )
+	return (
+		<div>
+			<header>
+				<h1>Memory Card Game</h1>
+			</header>
+		</div>
+	);
 }
 
-export default Header
+export default Header;
