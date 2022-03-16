@@ -6,22 +6,25 @@ import Scoreboard from "./components/Scoreboard";
 import Deck from "./components/Deck";
 
 function App() {
-	const [score, setScore] = useState({
+	const [scoreData, setScore] = useState({
 		score: 0,
 		highScore: 0,
 	});
 
 	function updateScore(newScore: number): void {
-		console.log("update score", newScore);
-		setScore({ score: newScore, highScore: score.highScore });
+		setScore({
+			score: newScore,
+			highScore:
+				newScore > scoreData.highScore ? newScore : scoreData.highScore,
+		});
 	}
 
 	return (
 		<div className="App">
 			<Header />
-			<Scoreboard score={score} />
+			<Scoreboard score={scoreData} />
 
-			<Deck score={score} updateScore={updateScore} />
+			<Deck scoreData={scoreData} updateScore={updateScore} />
 
 			<Footer />
 		</div>

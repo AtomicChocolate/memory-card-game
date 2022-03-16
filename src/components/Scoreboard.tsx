@@ -8,8 +8,8 @@ type Props = {
 const Scoreboard = (props: Props) => {
 	return (
 		<nav className="scoreboard">
-			<p>Score: {props.score.score}-</p>
-			<p>-Top: {props.score.highScore}</p>
+			<p>Score: {props.score.score}</p>
+			<p>Top: {props.score.highScore}</p>
 		</nav>
 	);
 };

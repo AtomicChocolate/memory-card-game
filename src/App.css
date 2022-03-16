@@ -1,15 +1,23 @@
 .card-deck {
 	display: grid;
+	height: 80vh;
 	grid-template-columns: repeat(3, 1fr);
-	grid-template-rows: repeat(4, 0.5fr);
+	grid-template-rows: repeat(4, 25%);
 }
 
 .card {
 	outline-style: solid;
 	outline-color: gray;
 	margin: 0;
-	width: 100%;
-	height: 15em;
+	/* width: 100%;
+	height: 15em; */
+	background-color: #444;
+}
+
+.card img {
+	image-rendering: pixelated;
+	height: 25%;
+	width: auto;
 }
 
 body {
@@ -36,6 +44,7 @@ footer {
 }
 
 nav a,
+nav p,
 footer a {
 	background-color: var(--nav-button-background-color);
 	margin: 0 10px;
@@ -74,6 +83,7 @@ a {
 
 p {
 	text-align: center;
+	color: var(--text-color);
 }
 
 .icon {
@@ -94,7 +104,7 @@ p {
 	}
 }
 
-@media (max-width: 768px) {
+@media (max-width: 1000px) {
 	body {
 		width: 90%;
 	}
@@ -103,5 +113,9 @@ p {
 	footer a {
 		margin: 0 0.25em;
 		padding: 0.2em;
+	}
+
+	.card-deck {
+		height: 60vh;
 	}
 }
