@@ -1,9 +1,9 @@
 import React, { useState } from "react";
-import "./App.css";
 import Footer from "./components/Footer";
 import Header from "./components/Header";
 import Scoreboard from "./components/Scoreboard";
 import Deck from "./components/Deck";
+import styled from "styled-components";
 
 function App() {
 	const [scoreData, setScore] = useState({
@@ -20,15 +20,20 @@ function App() {
 	}
 
 	return (
-		<div className="App">
+		<Main>
 			<Header />
 			<Scoreboard score={scoreData} />
 
 			<Deck scoreData={scoreData} updateScore={updateScore} />
 
 			<Footer />
-		</div>
+		</Main>
 	);
 }
+
+const Main = styled.main`
+	padding: 1em;
+	background-color: ${(props) => props.theme.navBackground};
+`;
 
 export default App;

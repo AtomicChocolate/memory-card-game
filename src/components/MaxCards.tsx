@@ -3,7 +3,11 @@ import React from "react";
 type Props = {};
 
 const MaxCards = (props: Props) => {
-	return <div>MaxCards</div>;
+	return (
+		<input className="maxCards" type="number">
+			12
+		</input>
+	);
 	//todo
 };
 

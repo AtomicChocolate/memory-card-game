@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import styled from "styled-components";
 import Shuffle from "shuffle-array";
 import uniqid from "uniqid";
 import { images } from "../utils/Images";
@@ -32,7 +33,7 @@ const Deck = (props: Props) => {
 	}
 
 	return (
-		<div className="card-deck">
+		<Div>
 			{deckOrder.map((cardData) => (
 				<Card
 					data={cardData}
@@ -40,8 +41,19 @@ const Deck = (props: Props) => {
 					key={uniqid()}
 				/>
 			))}
-		</div>
+		</Div>
 	);
 };
+
+const Div = styled.div`
+	display: grid;
+	height: 80vh;
+	grid-template-columns: repeat(3, 1fr);
+	grid-template-rows: repeat(4, 25%);
+
+	@media (max-width: 1000px) {
+		height: 60vh;
+	}
+`;
 
 export default Deck;
