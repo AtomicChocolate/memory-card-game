@@ -20,7 +20,8 @@ const NavItem = styled.a`
 	color: ${(props) => props.theme.link};
 	background-color: ${(props) => props.theme.navButtonBackground};
 	text-decoration: none;
-	margin: 0 10px;
+	margin-top: 1.25em;
+	margin-right: 10px;
 	padding: 1em;
 	border-radius: 3px;
 

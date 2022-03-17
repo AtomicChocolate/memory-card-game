@@ -9,9 +9,11 @@ import Card from "./Card";
 type Props = {
 	scoreData: Score;
 	updateScore: (newScore: number) => void;
+	deckLength: number;
 };
 
-const cards = Shuffle.pick(images, { picks: 12 }) as CardImage[];
+let cards = [...images];
+Shuffle(cards);
 
 const Deck = (props: Props) => {
 	const [deckOrder, updateDeckOrder] = useState(cards);
@@ -28,14 +30,15 @@ const Deck = (props: Props) => {
 		}
 
 		//Reshuffle deck
-		const newDeckOrder = [...deckOrder];
+		let newDeckOrder = [...deckOrder.slice(0, props.deckLength)];
 		Shuffle(newDeckOrder);
+		newDeckOrder = [...newDeckOrder, ...deckOrder.slice(props.deckLength, 212)];
 		updateDeckOrder(newDeckOrder);
 	}
 
 	return (
 		<Div>
-			{deckOrder.map((cardData) => (
+			{deckOrder.slice(0, props.deckLength).map((cardData) => (
 				<Card
 					data={cardData}
 					onClick={() => ButtonClick(cardData)}
@@ -50,7 +53,10 @@ const Div = styled.div`
 	display: grid;
 	height: 80vh;
 	grid-template-columns: repeat(3, 1fr);
-	grid-template-rows: repeat(4, 25%);
+	grid-template-rows: auto;
+
+	max-height: 80%;
+	overflow-y: auto;
 
 	@media (max-width: 1000px) {
 		height: 60vh;

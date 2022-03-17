@@ -10,6 +10,7 @@ function App() {
 		score: 0,
 		highScore: 0,
 	});
+	const [deckLength, setDeckLength] = useState(12);
 
 	function updateScore(newScore: number): void {
 		setScore({
@@ -22,9 +23,17 @@ function App() {
 	return (
 		<Main>
 			<Header />
-			<Scoreboard score={scoreData} />
+			<Scoreboard
+				score={scoreData}
+				deckLength={deckLength}
+				setDeckLength={setDeckLength}
+			/>
 
-			<Deck scoreData={scoreData} updateScore={updateScore} />
+			<Deck
+				scoreData={scoreData}
+				updateScore={updateScore}
+				deckLength={deckLength}
+			/>
 
 			<Footer />
 		</Main>

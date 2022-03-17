@@ -2,9 +2,12 @@ import React from "react";
 import styled from "styled-components";
 import { keyframes } from "styled-components";
 import { Score } from "../utils/Types";
+import MaxCards from "./MaxCards";
 
 type Props = {
 	score: Score;
+	deckLength: number;
+	setDeckLength: (number) => void;
 };
 
 type NavItemProps = {
@@ -14,9 +17,15 @@ type NavItemProps = {
 const Scoreboard = (props: Props) => {
 	return (
 		<Nav>
-			<NavItem score={props.score.score}>Score: {props.score.score}</NavItem>
-			<NavItem score={props.score.highScore}>
-				Top: {props.score.highScore}
+			<NavItem score={props.score.highScore !== 0 ? props.score.score : 1}>
+				Score: {props.score.score}
+			</NavItem>
+			<NavItem score={props.score.highScore !== 0 ? props.score.highScore : 1}>
+				Top: {props.score.highScore}/
+				<MaxCards
+					deckLength={props.deckLength}
+					setDeckLength={props.setDeckLength}
+				/>
 			</NavItem>
 		</Nav>
 	);
