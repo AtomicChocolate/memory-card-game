@@ -3,12 +3,12 @@ import styled from "styled-components";
 
 type Props = {
 	deckLength: number;
-	setDeckLength: (number) => void;
+	setDeckLength: (arg0: number) => void;
 };
 
 const MaxCards = (props: Props) => {
-	function handleChange(event) {
-		props.setDeckLength(event.target.value);
+	function handleChange(event: React.ChangeEvent<HTMLInputElement>) {
+		props.setDeckLength(parseInt(event.currentTarget.value));
 	}
 	return (
 		<NumInput

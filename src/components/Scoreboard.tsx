@@ -7,7 +7,7 @@ import MaxCards from "./MaxCards";
 type Props = {
 	score: Score;
 	deckLength: number;
-	setDeckLength: (number) => void;
+	setDeckLength: (arg0: number) => void;
 };
 
 type NavItemProps = {
