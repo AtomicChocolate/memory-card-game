@@ -21,6 +21,7 @@ const Deck = (props: Props) => {
 		if (picks.find((pick) => pick.name === cardData.name)) {
 			//Game over - player picked a card they previously picked
 			props.updateScore(0);
+			updatePicks([]);
 		} else {
 			props.updateScore(props.scoreData.score + 1);
 			updatePicks([...picks, cardData]);
